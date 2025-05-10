@@ -1,12 +1,15 @@
-// src/App.js
-import React from 'react';
+import { Routes, Route } from "react-router-dom";
+import HomePage from "./Components/Pages/HomePage";
+import Contact from "./Components/Pages/Contact";
+
 
 function App() {
   return (
-    <div className="bg-gray-100 w-full h-[100px] flex items-center justify-center">
-     <p className='text-2xl font-bold'>Hello World!</p>
-    </div>
-  );
+    <Routes>
+      <Route path={"/"} element={<HomePage />} />
+      <Route path={"/contact"} element={<Contact />} />
+    </Routes>
+  );  
 }
 
 export default App;
