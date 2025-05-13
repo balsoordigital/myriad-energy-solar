@@ -1,4 +1,4 @@
-const Product = ({productName}: any) => {
+const Product = ({ productName }: any) => {
   return (
     <div className="w-full h-[518px] rounded-[16px] shadow-lg overflow-hidden">
       <img
@@ -8,7 +8,9 @@ const Product = ({productName}: any) => {
       />
       <div className="h-[50%] flex text-[30px] font-bold relative">
         <span className="pl-5 absolute top-16 left-5">{productName}</span>
-        <button className="px-4 py-2 rounded-[8px] bg-buttonColor text-white text-[15px] absolute bottom-4 left-10">Know More</button>
+        <button className="px-4 py-2 rounded-[8px] bg-buttonColor text-white text-[15px] absolute bottom-4 left-10">
+          Know More
+        </button>
       </div>
     </div>
   );
