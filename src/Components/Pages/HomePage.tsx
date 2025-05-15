@@ -122,7 +122,7 @@ const HeroCarousel = () => {
 
   return (
     <div
-      className="relative w-full h-[600px] overflow-hidden mt-2"
+      className="relative w-full h-[600px] overflow-hidden mt-28"
       data-aos="fade-up"
     >
       {carouselImages.map((img, i) => (
@@ -232,9 +232,7 @@ const CustomerReviewSection = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -60 }}
             transition={{ duration: 0.6 }}
-            className={`w-[90%] h-[55%] rounded-3xl p-8 text-center flex flex-col justify-center items-center shadow-xl 
-              bg-gradient-to-b ${reviews[index].bg} 
-              backdrop-blur-md bg-opacity-70 transition`}
+            className={`w-[90%] h-fit rounded-3xl p-8 text-center flex flex-col justify-center items-center shadow-xl backdrop-blur-md `}
           >
             <Leaf className="text-green-600 mb-4" size={36} />
             <p className="text-xl italic text-gray-800 drop-shadow-sm mb-4 leading-snug">
