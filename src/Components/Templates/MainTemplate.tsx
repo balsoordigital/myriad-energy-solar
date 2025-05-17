@@ -1,141 +1,180 @@
+import { useState } from "react";
+import {
+  FaLinkedin,
+  FaInstagram,
+  FaFacebook,
+  FaYoutube,
+  FaBars,
+  FaTimes,
+} from "react-icons/fa";
 import { FaPhoneVolume } from "react-icons/fa6";
 import { CiMail } from "react-icons/ci";
-import { FaLinkedin, FaInstagram, FaFacebook, FaYoutube } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import NavItem from "../Molecules/NavItem";
 
 const MainTemplate = ({ children }: any) => {
   const navigate = useNavigate();
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
-    <div className="w-full h-screen bg-white">
-      <div className="w-full h-[116px] fixed top-0 left-0 z-50 bg-white shadow-md">
-        <div className="flex py-4 border-b border-[#c0e3b1] justify-end pr-40 text-[13px] text-[#0A4884]">
-          <span className="flex gap-2 items-center justify-center pr-4 border-r-2 border-gray-400">
-            <FaPhoneVolume color="#7AC33E" size={16} />{" "}
+    <div className="w-full min-h-screen bg-white flex flex-col">
+      {/* Header */}
+      <header className="w-full fixed top-0 left-0 z-50 bg-white shadow-md">
+        <div className="hidden md:flex justify-end py-2 border-b border-[#c0e3b1] pr-6 md:pr-16 text-[13px] text-[#0A4884]">
+          <span className="flex gap-2 items-center pr-4 border-r border-gray-400">
+            <FaPhoneVolume color="#7AC33E" size={15} />
             <span>+91 9999999999</span>
           </span>
-          <span className="flex gap-2 items-center justify-center pl-4">
+          <span className="flex gap-2 items-center pl-4">
             <CiMail color="#7AC33E" size={18} />
             <span>info@myriadenergy.in</span>
           </span>
         </div>
-        <div className="flex py-4 gap-12 justify-end pr-36 text-[16px] font-bold text-[#0A4884]">
-          <NavItem label="Home" to="/" />
-          {/* <NavItem label="Services" to="/services" /> */}
-          <NavItem
-            label="About"
-            submenu={[
-              { label: "About Us", to: "/about-us" },
-              { label: "History", to: "/history" },
-            ]}
-          />
-          <NavItem
-            label="Products"
-            submenu={[
-              { label: "Product 1", to: "/products/product1" },
-              { label: "Product 2", to: "/products/product2" },
-            ]}
-          />
-          <NavItem
-            label="Projects"
-            submenu={[
-              { label: "Project 1", to: "/project/project1" },
-              { label: "Project 2", to: "/project/project2" },
-            ]}
-          />
-          <NavItem label="Contact Us" to="/contact" />
-        </div>
-        <img
-          src={require("../../assets/myriad_logo.jpg")}
-          className="absolute left-10 top-[-15px] w-[150px] h-[130px] "
-          alt=""
-        />
-      </div>
-      {children}
-      <footer
-        className="w-full bottom-0 flex gap-24 mt-2 h-[380px] px-36 py-10 relative"
-        style={{
-          background:
-            "linear-gradient(90.16deg, #101f9d -15.84%, #11111c 122.54%)",
-        }}
-      >
-        <div className="flex flex-col h-full">
+
+        <div className="relative flex justify-between items-center px-4 py-3 md:px-16">
           <img
             src={require("../../assets/myriad_logo.jpg")}
-            className="w-[145px] h-[115px]"
-            alt=""
+            className="w-[110px] h-[80px] md:w-[135px] md:h-[110px]"
+            alt="Myriad Logo"
           />
-          <span className="text-white my-4">
-            Rooftop solar made simple. We don't just <br /> sell solar — we give
-            you peace of mind.
-          </span>
-          <div className="flex py-4 text-[14px] text-white">
-            <span className="flex gap-2 items-center justify-center pr-4 border-r-2 border-gray-400">
-              <FaPhoneVolume color="#FFFFFF" size={16} />{" "}
-              <span>+91 9999999999</span>
-            </span>
-            <span className="flex gap-2 items-center justify-center pl-4">
-              <CiMail color="#FFFFFF" size={18} />
-              <span>info@myriadenergy.in</span>
-            </span>
+
+          {/* Desktop Nav */}
+          <nav className="hidden lg:flex gap-16 text-[16px] font-bold text-[#0A4884]">
+            <NavItem label="Home" to="/" />
+            <NavItem
+              label="About"
+              submenu={[
+                { label: "About Us", to: "/about-us" },
+                { label: "History", to: "/history" },
+              ]}
+            />
+            <NavItem
+              label="Products"
+              submenu={[
+                { label: "Product 1", to: "/products/product1" },
+                { label: "Product 2", to: "/products/product2" },
+              ]}
+            />
+            <NavItem
+              label="Projects"
+              submenu={[
+                { label: "Project 1", to: "/project/project1" },
+                { label: "Project 2", to: "/project/project2" },
+              ]}
+            />
+            <NavItem label="Contact Us" to="/contact" />
+          </nav>
+
+          {/* Mobile Hamburger */}
+          <button
+            className="lg:hidden z-50"
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
+            {menuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
+          </button>
+
+          {/* Mobile Menu */}
+          {menuOpen && (
+            <div className="absolute top-full left-0 w-full bg-white shadow-md flex flex-col px-4 py-4 gap-4 text-[#0A4884] font-bold lg:hidden">
+              <NavItem label="Home" to="/" />
+              <NavItem
+                label="About"
+                submenu={[
+                  { label: "About Us", to: "/about-us" },
+                  { label: "History", to: "/history" },
+                ]}
+              />
+              <NavItem
+                label="Products"
+                submenu={[
+                  { label: "Product 1", to: "/products/product1" },
+                  { label: "Product 2", to: "/products/product2" },
+                ]}
+              />
+              <NavItem
+                label="Projects"
+                submenu={[
+                  { label: "Project 1", to: "/project/project1" },
+                  { label: "Project 2", to: "/project/project2" },
+                ]}
+              />
+              <NavItem label="Contact Us" to="/contact" />
+            </div>
+          )}
+        </div>
+      </header>
+
+      {/* Main Content */}
+      <main className="pt-[60px] flex-grow">{children}</main>
+
+      {/* Footer */}
+      <footer className="w-full px-4 md:px-16 py-10 bg-gradient-to-r from-[#101f9d] to-[#11111c] text-white">
+        <div className="flex flex-col lg:flex-row gap-12">
+          {/* Logo and Info */}
+          <div className="flex flex-col w-full lg:w-1/4">
+            <img
+              src={require("../../assets/myriad_logo.jpg")}
+              className="w-[120px] h-[90px] mb-4"
+              alt="Footer Logo"
+            />
+            <p className="text-sm">
+              Rooftop solar made simple. We don't just sell solar — we give you
+              peace of mind.
+            </p>
+            <div className="flex flex-col gap-2 mt-4 text-sm">
+              <div className="flex items-center gap-2">
+                <FaPhoneVolume size={15} /> <span>+91 9999999999</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CiMail size={18} /> <span>info@myriadenergy.in</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Footer Links */}
+          <div className="flex flex-wrap w-full lg:w-3/4 justify-between gap-8 lg:justify-around px-5">
+            <div>
+              <h4 className="font-bold text-lg mb-4">Quick Links</h4>
+              <ul className="flex flex-col gap-2 text-sm">
+                <li className="cursor-pointer">About Us</li>
+                <li
+                  className="cursor-pointer"
+                  onClick={() => navigate("/contact")}
+                >
+                  Contact Us
+                </li>
+                <li className="cursor-pointer">Projects</li>
+                <li className="cursor-pointer">Blogs</li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-bold text-lg mb-4">Products</h4>
+              <ul className="flex flex-col gap-2 text-sm">
+                <li className="cursor-pointer">Solar Waterpump Controller</li>
+                <li className="cursor-pointer">Solar Agriculture Pump</li>
+                <li className="cursor-pointer">Solar Photovoltaic Module</li>
+                <li className="cursor-pointer">Solar Roof-Top</li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-bold text-lg mb-4">Projects</h4>
+              <ul className="flex flex-col gap-2 text-sm">
+                <li className="cursor-pointer">Solar Pump</li>
+                <li className="cursor-pointer">Solar Roof-Top</li>
+                <li className="cursor-pointer">
+                  Remote Village Electrification
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
-        <div className="flex gap-20">
-          <div className="flex flex-col">
-            <span className="text-[20px] text-white font-bold">
-              Quick Links
-            </span>
-            <span className="text-[14px] text-white mt-6 cursor-pointer">
-              About Us
-            </span>
-            <span
-              className="text-[14px] text-white mt-4 cursor-pointer"
-              onClick={() => {
-                navigate("/contact");
-              }}
-            >
-              Contact Us
-            </span>
-            <span className="text-[14px] text-white mt-4 cursor-pointer">
-              Projects
-            </span>
-            <span className="text-[14px] text-white mt-4 cursor-pointer">
-              Blogs
-            </span>
-          </div>
-          <div className="flex flex-col">
-            <span className="text-[20px] text-white font-bold">Products</span>
-            <span className="text-[14px] text-white mt-6 cursor-pointer">
-              Solar Waterpump Controller
-            </span>
-            <span className="text-[14px] text-white mt-4 cursor-pointer">
-              Solar Agriculture Pump
-            </span>
-            <span className="text-[14px] text-white mt-4 cursor-pointer">
-              Solar Photovoltaic Module
-            </span>
-            <span className="text-[14px] text-white mt-4 cursor-pointer">
-              Solar Roof-Top
-            </span>
-          </div>
-          <div className="flex flex-col">
-            <span className="text-[20px] text-white font-bold ">Projects</span>
-            <span className="text-[14px] text-white mt-6 cursor-pointer">
-              Solar Pump
-            </span>
-            <span className="text-[14px] text-white mt-4 cursor-pointer">
-              Solar Roof-Top
-            </span>
-            <span className="text-[14px] text-white mt-4 cursor-pointer">
-              Remote Village Electrification
-            </span>
-          </div>
-        </div>
-        <div className="flex gap-6   absolute bottom-8 right-10">
-          <FaFacebook color="#ffffff" size={28} className="cursor-pointer" />{" "}
-          <FaYoutube color="#ffffff" size={28} className="cursor-pointer" />{" "}
-          <FaInstagram color="#ffffff" size={28} className="cursor-pointer" />{" "}
-          <FaLinkedin color="#ffffff" size={28} className="cursor-pointer" />
+
+        {/* Social Icons */}
+        <div className="flex justify-center lg:justify-end gap-6 mt-10">
+          <FaFacebook size={24} className="cursor-pointer" />
+          <FaYoutube size={24} className="cursor-pointer" />
+          <FaInstagram size={24} className="cursor-pointer" />
+          <FaLinkedin size={24} className="cursor-pointer" />
         </div>
       </footer>
     </div>
