@@ -6,7 +6,7 @@ const Contact = () => {
     <MainTemplate>
       {/* Header Image */}
       <div
-        className="w-full h-[320px] relative text-[60px] font-bold text-white flex items-center justify-center mt-28"
+        className="w-full h-[320px] relative text-[60px] font-bold text-white flex items-center justify-center mt-12"
         style={{
           backgroundImage: "url('/assets/bg-contact.jpeg')",
           backgroundSize: "cover",

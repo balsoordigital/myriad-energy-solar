@@ -20,7 +20,7 @@ const MainTemplate = ({ children }: any) => {
     <div className="w-full min-h-screen bg-white flex flex-col">
       {/* Header */}
       <header className="w-full fixed top-0 left-0 z-50 bg-white shadow-md">
-        <div className="hidden md:flex justify-end py-2 border-b border-[#c0e3b1] pr-6 md:pr-16 text-[13px] text-[#0A4884]">
+        {/* <div className="hidden md:flex justify-end py-2 border-b border-[#c0e3b1] pr-6 md:pr-16 text-[13px] text-[#0A4884]">
           <span className="flex gap-2 items-center pr-4 border-r border-gray-400">
             <FaPhoneVolume color="#7AC33E" size={15} />
             <span>+91 9999999999</span>
@@ -29,9 +29,9 @@ const MainTemplate = ({ children }: any) => {
             <CiMail color="#7AC33E" size={18} />
             <span>info@myriadenergy.in</span>
           </span>
-        </div>
+        </div> */}
 
-        <div className="relative flex justify-between items-center px-4 py-3 md:px-16">
+        <div className="relative flex justify-between items-center px-4 md:px-16">
           <img
             src={require("../../assets/myriad_logo.jpg")}
             className="w-[110px] h-[80px] md:w-[135px] md:h-[110px]"

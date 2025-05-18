@@ -23,7 +23,7 @@ const HeroCarousel = () => {
 
   return (
     <div
-      className="relative w-full h-[300px] sm:h-[400px] lg:h-[600px] overflow-hidden mt-24"
+      className="relative w-full h-[300px] sm:h-[400px] lg:h-[600px] overflow-hidden mt-12"
       data-aos="fade-up"
     >
       {carouselImages.map((img, i) => (
