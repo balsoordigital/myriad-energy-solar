@@ -63,6 +63,7 @@ const MainTemplate = ({ children }: any) => {
               ]}
             />
             <NavItem label="Contact Us" to="/contact" />
+            <NavItem label="Gallery" to="/gallery" />
           </nav>
 
           {/* Mobile Hamburger */}
@@ -99,6 +100,7 @@ const MainTemplate = ({ children }: any) => {
                 ]}
               />
               <NavItem label="Contact Us" to="/contact" />
+              <NavItem label="Gallery" to="/gallery" />
             </div>
           )}
         </div>
