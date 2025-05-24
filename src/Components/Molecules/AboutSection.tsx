@@ -27,15 +27,16 @@ const AboutSection = () => {
           Get to Know Us
         </p>
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#0A4884]">
-          Providing Renewable Energy <br className="hidden sm:block" />{" "}
-          Solutions
+          Powering Progress Through <br className="hidden sm:block" /> Solar
+          Innovation
         </h2>
         <p className="pt-4 text-sm sm:text-base md:text-lg text-gray-700 leading-relaxed">
-          We are India’s largest pure play engineering, procurement and
-          commissioning (EPC) provider of solar-powered agricultural water pump
-          systems under the Pradhan Mantri Kisan Urja Suraksha Evam Utthan
-          Mahabhiyan scheme (PM KUSUM Scheme). We also provide EPC of GK Energy
-          brand solar dual water pump systems to local government bodies.
+          At <span className="font-bold">Myriad Energy Pvt. Ltd.</span>, our projects are a reflection of our
+          commitment to clean energy and sustainable development. We have
+          successfully designed, installed, and managed solar power systems
+          across residential, commercial, industrial, and agricultural sectors.
+          Each project stands as a testament to our technical expertise, quality
+          standards, and focus on customer satisfaction.
         </p>
         <button className="px-6 py-3 rounded-md bg-buttonColor text-white text-sm font-semibold uppercase mt-6">
           Know More

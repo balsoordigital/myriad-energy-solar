@@ -16,7 +16,7 @@ const AboutCommonSection = () => {
       <p className="text-[40px] text-white text-center font-bold">
         We Are Building A Sustainable Future
       </p>
-      <div className="flex gap-5 justify-around w-full text-white py-8">
+      <div className="flex flex-col p-4 lg:flex-row gap-5 justify-around w-full text-white py-8">
         <div className="text-[17px] flex items-center gap-3">
           <div className="relative w-[58px] h-[58px]">
             <div className="absolute inset-0 rounded-full bg-[#19B04B]" />
@@ -56,12 +56,12 @@ const AboutCommonSection = () => {
           </span>
         </div>
       </div>
-      <div className="w-full flex">
-        <div ref={ref} className="flex flex-col gap-8 py-12 w-1/2 items-center">
-          <div className="flex gap-8">
+      <div className="w-full flex flex-col xl:flex-row">
+        <div ref={ref} className="flex flex-col gap-8 py-12 w-full xl:w-[60%] items-center">
+          <div className="flex flex-col md:flex-row gap-8">
             <div className="flex items-center gap-3">
               <div className="w-[155px] h-[155px] border-[5px] border-buttonColor rounded-full flex justify-center items-center text-[35px] font-bold text-white">
-                {inView ? <CountUp end={15} duration={3.5} /> : 0}+
+                {inView ? <CountUp end={10} duration={3.5} /> : 0}+
               </div>
               <p className="text-[17px] text-white w-[143px]">
                 Year's Expertise
@@ -69,34 +69,34 @@ const AboutCommonSection = () => {
             </div>
             <div className="flex items-center gap-3">
               <div className="w-[155px] h-[155px] border-[5px] border-buttonColor rounded-full flex justify-center items-center text-[35px] font-bold text-white">
-                {inView ? <CountUp end={500} duration={3.5} /> : 0}+
+                {inView ? <CountUp end={600} duration={3.5} /> : 0}+
               </div>
               <p className="text-[17px] text-white w-[143px]">
-                Employees and Workmen
+                Employees and Contractors
               </p>
             </div>
           </div>
-          <div className="flex gap-8">
+          <div className="flex flex-col md:flex-row gap-8">
             <div className="flex items-center gap-3">
               <div className="w-[155px] h-[155px] border-[5px] border-buttonColor rounded-full flex justify-center items-center text-[35px] font-bold text-white">
-                {inView ? <CountUp end={42788} duration={3.5} /> : 0}+
+                {inView ? <CountUp end={20000} duration={3.5} /> : 0}+
               </div>
               <p className="text-[17px] text-white w-[143px]">
-                Solar pump installed upto 30th Nov 2024
+                Solar pump installed
               </p>
             </div>
             <div className="flex items-center gap-3">
               <div className="w-[155px] h-[155px] border-[5px] border-buttonColor rounded-full flex justify-center items-center text-[35px] font-bold text-white">
-                {inView ? <CountUp end={10} duration={3.5} /> : 0}+
+                {inView ? <CountUp end={20} duration={3.5} /> : 0}+
               </div>
               <p className="text-[17px] text-white w-[143px]">
-                Leading Agriculture states
+                Mega Watt Roof top Projects
               </p>
             </div>
           </div>
         </div>
-        <div className="w-1/2 flex justify-center py-12">
-          <form className="flex flex-col w-3/4 gap-5 bg-white p-8 shadow-lg rounded-xl">
+        <div className="w-full xl:w-[40%] flex justify-center px-4 lg:px-0 py-12">
+          <form className="flex flex-col w-full lg:w-3/4 gap-5 bg-white p-8 shadow-lg rounded-xl">
             <p className="text-center text-[30px] font-bold">Enquiry Form</p>
             <input
               type="text"

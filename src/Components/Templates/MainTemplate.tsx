@@ -6,6 +6,7 @@ import {
   FaYoutube,
   FaBars,
   FaTimes,
+  FaArrowRight,
 } from "react-icons/fa";
 import { FaPhoneVolume } from "react-icons/fa6";
 import { CiMail } from "react-icons/ci";
@@ -31,7 +32,7 @@ const MainTemplate = ({ children }: any) => {
           </span>
         </div> */}
 
-        <div className="relative flex justify-between items-center px-4 md:px-16">
+        <div className="relative flex justify-between items-center px-4 md:px-12">
           <img
             src={require("../../assets/myriad_logo.jpg")}
             className="w-[110px] h-[80px] md:w-[135px] md:h-[110px]"
@@ -39,7 +40,7 @@ const MainTemplate = ({ children }: any) => {
           />
 
           {/* Desktop Nav */}
-          <nav className="hidden lg:flex gap-16 text-[16px] font-bold text-[#0A4884]">
+          <nav className="hidden xl:flex gap-16 text-[16px] font-bold text-[#0A4884] items-center">
             <NavItem label="Home" to="/" />
             <NavItem
               label="About"
@@ -50,6 +51,7 @@ const MainTemplate = ({ children }: any) => {
             />
             <NavItem
               label="Products"
+              to="/products"
               submenu={[
                 { label: "Product 1", to: "/products/product1" },
                 { label: "Product 2", to: "/products/product2" },
@@ -57,6 +59,7 @@ const MainTemplate = ({ children }: any) => {
             />
             <NavItem
               label="Projects"
+              to="/projects"
               submenu={[
                 { label: "Project 1", to: "/project/project1" },
                 { label: "Project 2", to: "/project/project2" },
@@ -64,11 +67,21 @@ const MainTemplate = ({ children }: any) => {
             />
             <NavItem label="Contact Us" to="/contact" />
             <NavItem label="Gallery" to="/gallery" />
+
+            <div
+              className="w-[245px] h-[38px] bg-gradient-to-r from-[#101f9d] to-[#11111c] rounded-[20px] text-white flex items-center justify-center gap-2 cursor-pointer"
+              onClick={() => {
+                navigate("/signup");
+              }}
+            >
+              Sign up for free electricity{" "}
+              <FaArrowRight className="mt-1" size={12} />{" "}
+            </div>
           </nav>
 
           {/* Mobile Hamburger */}
           <button
-            className="lg:hidden z-50"
+            className="xl:hidden z-50"
             onClick={() => setMenuOpen(!menuOpen)}
           >
             {menuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
@@ -76,7 +89,7 @@ const MainTemplate = ({ children }: any) => {
 
           {/* Mobile Menu */}
           {menuOpen && (
-            <div className="absolute top-full left-0 w-full bg-white shadow-md flex flex-col px-4 py-4 gap-4 text-[#0A4884] font-bold lg:hidden">
+            <div className="absolute top-full left-0 w-full bg-white shadow-md flex flex-col px-4 py-4 gap-4 text-[#0A4884] font-bold xl:hidden">
               <NavItem label="Home" to="/" />
               <NavItem
                 label="About"
@@ -101,6 +114,15 @@ const MainTemplate = ({ children }: any) => {
               />
               <NavItem label="Contact Us" to="/contact" />
               <NavItem label="Gallery" to="/gallery" />
+              <div
+                className="w-[245px] h-[38px] bg-gradient-to-r from-[#101f9d] to-[#11111c] rounded-[20px] text-white flex items-center justify-center gap-2 cursor-pointer mt-3 ml-[-6px]"
+                onClick={() => {
+                  navigate("/signup");
+                }}
+              >
+                Sign up for free electricity{" "}
+                <FaArrowRight className="mt-1" size={12} />{" "}
+              </div>
             </div>
           )}
         </div>
@@ -137,13 +159,19 @@ const MainTemplate = ({ children }: any) => {
           <div className="flex flex-wrap w-full lg:w-3/4 justify-between gap-8 lg:justify-around px-5">
             <div>
               <h4 className="font-bold text-lg mb-4">Quick Links</h4>
-              <ul className="flex flex-col gap-2 text-sm">
+              <ul className="flex flex-col gap-2 text-">
                 <li className="cursor-pointer">About Us</li>
                 <li
                   className="cursor-pointer"
                   onClick={() => navigate("/contact")}
                 >
                   Contact Us
+                </li>
+                <li
+                  className="cursor-pointer"
+                  onClick={() => navigate("/careers")}
+                >
+                  Careers
                 </li>
                 <li className="cursor-pointer">Projects</li>
                 <li className="cursor-pointer">Blogs</li>

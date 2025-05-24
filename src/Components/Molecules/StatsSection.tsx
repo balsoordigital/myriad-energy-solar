@@ -1,32 +1,51 @@
 import "aos/dist/aos.css";
-import { BadgeCheck, MapPinned, Droplets, Users } from "lucide-react";
+import {
+  BadgeCheck,
+  Zap,
+  Droplets,
+  Users,
+  Briefcase,
+  Sun,
+} from "lucide-react";
 import CountUp from "react-countup";
 import { useInView } from "react-intersection-observer";
 
 const stats = [
   {
-    value: 15,
+    value: 10,
     suffix: "+",
     label: "Years Of Expertise",
     icon: <BadgeCheck className="w-10 h-10 text-green-400" />,
   },
   {
-    value: 10,
+    value: 20,
     suffix: "+",
-    label: "Presence In Leading Agriculture States",
-    icon: <MapPinned className="w-10 h-10 text-green-400" />,
+    label: "MW Roof top Projects",
+    icon: <Zap className="w-10 h-10 text-green-400" />,
   },
   {
-    value: 42778,
+    value: 20000,
     suffix: "+",
-    label: "Solar Pumps Installed Upto 30th Nov 2024",
+    label: "Solar Pumps Installed",
     icon: <Droplets className="w-10 h-10 text-green-400" />,
+  },
+  {
+    value: 10,
+    suffix: "+",
+    label: "MW Ground Mounting",
+    icon: <Sun className="w-10 h-10 text-green-400" />,
+  },
+  {
+    value: 100,
+    suffix: "+",
+    label: "Employees",
+    icon: <Users className="w-10 h-10 text-green-400" />,
   },
   {
     value: 500,
     suffix: "+",
-    label: "Employees and Workmen",
-    icon: <Users className="w-10 h-10 text-green-400" />,
+    label: "Contractors",
+    icon: <Briefcase className="w-10 h-10 text-green-400" />,
   },
 ];
 
@@ -52,13 +71,18 @@ const StatsSection = () => {
       {/* Stats */}
       <div className="relative z-10 flex flex-col sm:flex-row flex-wrap w-full max-w-6xl justify-center sm:justify-around items-center text-center gap-10">
         {stats.map((stat, i) => (
-          <div key={i} className="flex flex-col gap-2 items-center w-full sm:w-auto">
+          <div
+            key={i}
+            className="flex flex-col gap-2 items-center w-full sm:w-auto"
+          >
             <div className="text-green-300">{stat.icon}</div>
             <span className="text-3xl sm:text-4xl font-bold">
               {inView ? <CountUp end={stat.value} duration={3.5} /> : 0}
               {stat.suffix}
             </span>
-            <span className="text-sm sm:text-base max-w-[130px] min-h-[72px]">{stat.label}</span>
+            <span className="text-sm sm:text-base max-w-[130px] min-h-[72px]">
+              {stat.label}
+            </span>
           </div>
         ))}
       </div>

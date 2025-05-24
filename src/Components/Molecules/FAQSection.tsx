@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "aos/dist/aos.css";
-import { ChevronUp, ChevronDown, Leaf } from "lucide-react";
+import { ChevronUp, ChevronDown } from "lucide-react";
 
 const faqs = [
   {

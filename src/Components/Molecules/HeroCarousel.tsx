@@ -41,7 +41,7 @@ const HeroCarousel = () => {
           <div className="absolute inset-0 bg-black opacity-30"></div>
           <div className="flex flex-col gap-2 items-center justify-center h-full z-20 relative px-4 text-center">
             <p className="text-white font-bold text-2xl sm:text-3xl md:text-4xl lg:text-[54px] leading-tight">
-              Providing Renewable Energy Solutions
+              Powering Progress Through Solar Innovation
             </p>
             <p className="text-white font-semibold text-sm sm:text-lg md:text-xl lg:text-2xl mt-5">
               Switch to solar. Let the sun pay your bills.
