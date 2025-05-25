@@ -30,6 +30,7 @@ const LeadCaptureForm = () => {
   });
 
   const [errors, setErrors] = useState<FormErrors>({});
+  const [status, setStatus] = useState<string | null>(null);
 
   const handleInputChange = (e: any) => {
     const { name, value } = e.target;
@@ -41,19 +42,7 @@ const LeadCaptureForm = () => {
   };
 
   const validate = () => {
-    const newErrors = {
-      fullName: "",
-      whatsapp: "",
-      pinCode: "",
-      averageBill: "",
-      housingSocietyName: "",
-      electricityBill: "",
-      designation: "",
-      agmStatus: "",
-      companyName: "",
-      city: "",
-      agree: true,
-    };
+    const newErrors: FormErrors = {};
 
     if (!formData.fullName.trim()) newErrors.fullName = "Required";
     if (!formData.whatsapp.trim()) newErrors.whatsapp = "Required";
@@ -80,11 +69,51 @@ const LeadCaptureForm = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e: { preventDefault: () => void }) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
-    if (validate()) {
-      console.log("Form Data:", formData);
-      alert("Form submitted successfully!");
+    if (!validate()) return;
+
+    setStatus("Submitting...");
+
+    const payload = {
+      access_key: "8c3e2f10-0e7d-4968-ab06-73dc0f594ae3",
+      subject: `New Lead from ${formType} form`,
+      from_name: formData.fullName,
+      ...formData,
+      formType,
+    };
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      const result = await response.json();
+      if (result.success) {
+        setStatus("Form submitted successfully!");
+        setFormData({
+          fullName: "",
+          whatsapp: "",
+          pinCode: "",
+          averageBill: "",
+          housingSocietyName: "",
+          electricityBill: "",
+          designation: "",
+          agmStatus: "",
+          companyName: "",
+          city: "",
+          agree: true,
+        });
+      } else {
+        setStatus("Failed to submit. Please try again.");
+      }
+    } catch (error) {
+      console.error(error);
+      setStatus("An error occurred. Please try again.");
     }
   };
 
@@ -412,6 +441,9 @@ const LeadCaptureForm = () => {
         >
           Submit Details
         </button>
+        {status && (
+          <p className="text-center mt-4 text-sm text-gray-700">{status}</p>
+        )}
       </form>
     </div>
   );

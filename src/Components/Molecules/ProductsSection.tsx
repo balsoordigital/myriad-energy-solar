@@ -6,7 +6,7 @@ import Product from "./Product"; // replace with your actual import
 const products = [
   "Ground Mounted Solar",
   "Solar Roof-Top",
-  "Solar Photovoltaic",
+  "EV charging station",
   "Solar AG pump",
   "Solar street light/ Solar high mast",
   "Solar electric fencing",

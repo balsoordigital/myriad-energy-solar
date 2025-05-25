@@ -1,7 +1,7 @@
-const Product = ({ productName, height = "480" }: any) => {
+const Product = ({ productName, height = "h-[480px]" }: any) => {
   return (
     <div
-      className={`w-full h-[${height}px] rounded-[16px] shadow-lg overflow-hidden`}
+      className={`w-full ${height} rounded-[16px] shadow-lg overflow-hidden`}
     >
       <img
         src={require("../../assets/bg-solar-panel-2.jpg")}

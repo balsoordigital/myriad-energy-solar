@@ -40,7 +40,7 @@ const NavItem = ({ label, to, submenu = [] }: any) => {
             ) => (
               <div
                 key={id}
-                className="w-[255px] px-4 py-3 hover:bg-buttonColor hover:text-white cursor-pointer whitespace-nowrap text-[16px] font-bold text-[#0A4884]"
+                className="w-[265px] px-4 py-3 hover:bg-buttonColor hover:text-white cursor-pointer whitespace text-[16px] font-bold text-[#0A4884]"
                 onClick={() => navigate(item.to)}
               >
                 {item.label}

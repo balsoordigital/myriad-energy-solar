@@ -1,3 +1,4 @@
+import { useState } from "react";
 import CountUp from "react-countup";
 import { IoCheckmarkSharp } from "react-icons/io5";
 import { useInView } from "react-intersection-observer";
@@ -7,6 +8,27 @@ const AboutCommonSection = () => {
     triggerOnce: true,
     threshold: 0.3,
   });
+
+  const [status, setStatus] = useState("");
+
+  const handleSubmit = async (e: any) => {
+    e.preventDefault();
+    setStatus("Sending...");
+
+    const formData = new FormData(e.target);
+
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: formData,
+    });
+
+    if (response.ok) {
+      setStatus("Message sent successfully!");
+      e.target.reset();
+    } else {
+      setStatus("Failed to send message. Please try again.");
+    }
+  };
 
   return (
     <div className="w-full bg-blue-900 h-auto my-5">
@@ -57,7 +79,10 @@ const AboutCommonSection = () => {
         </div>
       </div>
       <div className="w-full flex flex-col xl:flex-row">
-        <div ref={ref} className="flex flex-col gap-8 py-12 w-full xl:w-[60%] items-center">
+        <div
+          ref={ref}
+          className="flex flex-col gap-8 py-12 w-full xl:w-[60%] items-center"
+        >
           <div className="flex flex-col md:flex-row gap-8">
             <div className="flex items-center gap-3">
               <div className="w-[155px] h-[155px] border-[5px] border-buttonColor rounded-full flex justify-center items-center text-[35px] font-bold text-white">
@@ -96,29 +121,48 @@ const AboutCommonSection = () => {
           </div>
         </div>
         <div className="w-full xl:w-[40%] flex justify-center px-4 lg:px-0 py-12">
-          <form className="flex flex-col w-full lg:w-3/4 gap-5 bg-white p-8 shadow-lg rounded-xl">
+          <form
+            onSubmit={handleSubmit}
+            className="flex flex-col w-full lg:w-3/4 gap-5 bg-white p-8 shadow-lg rounded-xl"
+          >
             <p className="text-center text-[30px] font-bold">Enquiry Form</p>
             <input
+              type="hidden"
+              name="access_key"
+              value="8c3e2f10-0e7d-4968-ab06-73dc0f594ae3"
+            />
+            <input type="hidden" name="subject" value="New Enquiry Message" />
+            <input type="hidden" name="from_name" value="Myriad Energy Enquiry Form" />
+            <input type="checkbox" name="botcheck" className="hidden" style={{ display: "none" }} />
+            <input
               type="text"
+              name="name"
               placeholder="Full Name"
+              autoComplete="off"
               className="border border-gray-300 p-3 rounded-md focus:outline-green-500"
               required
             />
             <input
               type="email"
+              name="email"
               placeholder="Email"
+              autoComplete="off"
               className="border border-gray-300 p-3 rounded-md focus:outline-green-500"
               required
             />
             <input
               type="text"
+              name="user_subject"
               placeholder="Subject"
+              autoComplete="off"
               className="border border-gray-300 p-3 rounded-md focus:outline-green-500"
               required
             />
             <textarea
+              name="message"
               placeholder="Message"
               rows={5}
+              autoComplete="off"
               className="border border-gray-300 p-3 rounded-md resize-none focus:outline-green-500"
               required
             ></textarea>
@@ -128,6 +172,8 @@ const AboutCommonSection = () => {
             >
               Send Message
             </button>
+
+            {status && <p className="text-center text-sm mt-2">{status}</p>}
           </form>
         </div>
       </div>

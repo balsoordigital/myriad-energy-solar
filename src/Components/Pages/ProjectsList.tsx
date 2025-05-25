@@ -28,7 +28,7 @@ const ProjectsList = () => {
       <div className="w-full lg:w-[80%] xl:w-[65%] mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
         {projects.map((name, idx) => (
           <div className="p-4" key={idx}>
-            <Product productName={name} height={540} />
+            <Product productName={name} height={"h-[540px]"} />
           </div>
         ))}
       </div>

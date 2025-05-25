@@ -4,7 +4,7 @@ import MainTemplate from "../Templates/MainTemplate";
 const products = [
   "Ground Mounted Solar",
   "Solar Roof-Top",
-  "Solar Photovoltaic",
+  "EV Charging station",
   "Solar AG pump",
   "Solar street light/ Solar high mast",
   "Solar electric fencing",

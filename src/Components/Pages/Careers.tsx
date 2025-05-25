@@ -38,7 +38,7 @@ export default function Careers() {
         }}
       >
         <div className="absolute inset-0 bg-black opacity-30"></div>
-        <span className="relative z-10">Career Opportunities</span>
+        <span className="relative z-10 text-center">Career Opportunities</span>
       </div>
       <div className="p-6 max-w-5xl mx-auto space-y-8">
         <section className="bg-gradient-to-br from-green-50 via-white to-green-100 rounded-3xl shadow-lg px-6 py-10 text-center space-y-6 border border-green-200">

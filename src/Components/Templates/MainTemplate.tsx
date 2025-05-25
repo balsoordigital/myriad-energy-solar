@@ -53,16 +53,34 @@ const MainTemplate = ({ children }: any) => {
               label="Products"
               to="/products"
               submenu={[
-                { label: "Product 1", to: "/products/product1" },
-                { label: "Product 2", to: "/products/product2" },
+                { label: "Ground Mounted Solar", to: "/products/product1" },
+                { label: "Solar Roof-Top", to: "/products/product2" },
+                { label: "EV Charging station", to: "/products/product3" },
+                { label: "Solar AG pump", to: "/products/product4" },
+                {
+                  label: "Solar street light/ Solar high mast",
+                  to: "/products/product5",
+                },
+                { label: "Solar electric fencing", to: "/products/product6" },
+                { label: "Solar home light system", to: "/products/product7" },
+                { label: "Green hydrogen solution", to: "/products/product8" },
               ]}
             />
             <NavItem
               label="Projects"
               to="/projects"
               submenu={[
-                { label: "Project 1", to: "/project/project1" },
-                { label: "Project 2", to: "/project/project2" },
+                { label: "100 kW Rooftop Solar", to: "/project/project1" },
+                {
+                  label: "500 kW Ground-Mounted Solar Plant",
+                  to: "/project/project2",
+                },
+                {
+                  label: "10 kW Residential Solar System",
+                  to: "/project/project3",
+                },
+                { label: "Solar Water Pumping", to: "/project/project4" },
+                { label: "50 kW Solar Plant", to: "/project/project5" },
               ]}
             />
             <NavItem label="Contact Us" to="/contact" />
@@ -173,27 +191,34 @@ const MainTemplate = ({ children }: any) => {
                 >
                   Careers
                 </li>
-                <li className="cursor-pointer">Projects</li>
+                <li
+                  className="cursor-pointer"
+                  onClick={() => navigate("/projects")}
+                >
+                  Projects
+                </li>
                 <li className="cursor-pointer">Blogs</li>
               </ul>
             </div>
             <div>
               <h4 className="font-bold text-lg mb-4">Products</h4>
               <ul className="flex flex-col gap-2 text-sm">
-                <li className="cursor-pointer">Solar Waterpump Controller</li>
-                <li className="cursor-pointer">Solar Agriculture Pump</li>
-                <li className="cursor-pointer">Solar Photovoltaic Module</li>
                 <li className="cursor-pointer">Solar Roof-Top</li>
+                <li className="cursor-pointer">Solar AG pump</li>
+                <li className="cursor-pointer">Ground Mounted Solar</li>
+                <li className="cursor-pointer">Solar electric fencing</li>
+                <li className="cursor-pointer">Green hydrogen solution</li>
               </ul>
             </div>
             <div>
               <h4 className="font-bold text-lg mb-4">Projects</h4>
               <ul className="flex flex-col gap-2 text-sm">
-                <li className="cursor-pointer">Solar Pump</li>
-                <li className="cursor-pointer">Solar Roof-Top</li>
+                <li className="cursor-pointer">100 kW Rooftop Solar</li>
+                <li className="cursor-pointer">50 kW Solar Plant</li>
                 <li className="cursor-pointer">
-                  Remote Village Electrification
+                  500 kW Ground-Mounted Solar Plant
                 </li>
+                <li className="cursor-pointer">Solar Water Pumping</li>
               </ul>
             </div>
           </div>
